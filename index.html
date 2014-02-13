@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js"></script>
+<script>
+angular.module('ekg',['ng']).directive('strokeExposeLength', function () {
+  return {
+    scope: true,
+    link: function (scope, elem, attr) {
+      scope.strokeLength = elem[0].getTotalLength();
+    }
+  };
+}).controller('EKGCtrl', function () {
+  return {
+    paths: new Array(50),
+    inverse5: function (n) {
+      return 1 / Math.pow(n, 5)
+    }
+  };
+});
+</script>
+</head>
+<body ng-app="ekg">
+<svg ng-controller="EKGCtrl as ekg">
+  <path class="ekg" ng-repeat="path in ekg.paths track by $index"
+        stroke-expose-length
+        fill="none"
+        stroke-width="4"
+        ng-style="{ strokeDasharray: (strokeLength*$index/ekg.paths.length) + ' ' +
+                                     (strokeLength - (strokeLength*$index/ekg.paths.length)),
+                    stroke: 'rgba(0,0,0,' + inverse5($index + 1) + 1.1/ekg.paths.length + ')' }"
+        d="m 0 120 l 20 -0.16
+           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
+           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
+           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
+           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
+           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 20 0">
+  <animate attributeName="stroke-dashoffset"
+           from="{{strokeLength*$index/ekg.paths.length}}"
+           to="{{strokeLength*$index/ekg.paths.length - strokeLength}}"
+           begin="0s"
+           dur="2000ms"
+           fill="freeze"
+           repeatCount="indefinite"/>
+  </path>
+</svg>
+</body>
+</html>
