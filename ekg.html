@@ -2,20 +2,24 @@
   <path class="ekg" ng-repeat="path in ekg.paths track by $index"
         stroke-expose-length
         fill="none"
-        stroke-width="4"
+        stroke-width="2"
         stroke="rgba(0,0,0,0.05)"
         ng-style="{ strokeDasharray: (strokeLength*($index+1)/ekg.paths.length) + ' ' +
                                      (strokeLength - (strokeLength*($index+1)/ekg.paths.length)) }"
-        d="m 0 120 l 20 -0.16
-           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
-           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
-           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
-           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 10.7 0.1 c 16.7 -4.6 9.8 -7.8 18.87 -11.5 c 6.1 0.5 9.46 9.1 11.3 12.5 l 10.99 -0.16
-           l 3.5 8.7 l 4.4 -92.45 l 8.27 112.9 l 4.2 -30.8 l 20 0">
+        d="m 0,125.026
+           L 60.271,125.026
+             74.842,111.955
+             79.886,124.147
+             97.354,8.838
+             112.483,206.824
+             124.348,108.44
+             139.375,124.534
+             232.864,124.795 ">
   <animate attributeName="stroke-dashoffset"
            from="{{strokeLength*$index/ekg.paths.length}}"
            to="{{strokeLength*$index/ekg.paths.length - strokeLength}}"
            begin="0s"
-           dur="2000ms"
+           dur="1000ms"
            repeatCount="indefinite"/>
   </path>
+</svg>
