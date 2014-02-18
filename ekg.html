@@ -6,15 +6,7 @@
         stroke="rgba(0,0,0,0.05)"
         ng-style="{ strokeDasharray: (strokeLength*($index+1)/ekg.paths.length) + ' ' +
                                      (strokeLength - (strokeLength*($index+1)/ekg.paths.length)) }"
-        d="m 0,125.026
-           L 60.271,125.026
-             74.842,111.955
-             79.886,124.147
-             97.354,8.838
-             112.483,206.824
-             124.348,108.44
-             139.375,124.534
-             232.864,124.795 ">
+        d="m 0,113.745 L 54.179,113.741 61.549,85.842   72.712,151.443 74.894,110.396 82.979,116.499 114.289,7.398 133.537,199.125 151.844,113.729 314,113.729 ">
   <animate attributeName="stroke-dashoffset"
            from="{{strokeLength*$index/ekg.paths.length}}"
            to="{{strokeLength*$index/ekg.paths.length - strokeLength}}"
