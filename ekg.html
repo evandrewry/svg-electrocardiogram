@@ -1,9 +1,13 @@
 <svg>
+  <defs>
+    <filter id="f1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.9" />
+    </filter>
+  </defs>
   <path class="ekg" ng-repeat="path in ekg.paths track by $index"
+        filter="url(#f1)"
         stroke-expose-length
         fill="none"
-        stroke-width="2"
-        stroke="rgba(0,0,0,0.05)"
         ng-style="{ strokeDasharray: (strokeLength*($index+1)/ekg.paths.length) + ' ' +
                                      (strokeLength - (strokeLength*($index+1)/ekg.paths.length)) }"
         d="m 0,113.745 L 54.179,113.741 61.549,85.842   72.712,151.443 74.894,110.396 82.979,116.499 114.289,7.398 133.537,199.125 151.844,113.729 314,113.729 ">
@@ -11,7 +15,7 @@
            from="{{strokeLength*$index/ekg.paths.length}}"
            to="{{strokeLength*$index/ekg.paths.length - strokeLength}}"
            begin="0s"
-           dur="1000ms"
+           dur="1500ms"
            repeatCount="indefinite"/>
   </path>
 </svg>
