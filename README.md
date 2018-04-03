@@ -1,1 +1,1 @@
-http://www.deth.ly/svg-electrocardiogram/
+http://evandrewry.github.io/svg-electrocardiogram/
